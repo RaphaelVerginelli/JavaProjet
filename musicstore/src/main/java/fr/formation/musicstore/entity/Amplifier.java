@@ -1,5 +1,7 @@
 package fr.formation.musicstore.entity;
 
+import java.math.BigDecimal;
+
 public class Amplifier extends Instrument {
     private int powerWatts;
 

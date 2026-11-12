@@ -1,10 +1,12 @@
 package fr.formation.musicstore.entity;
 
+import java.math.BigDecimal;
+
 public class Bass extends Instrument {
     private int numberOfStrings;
 
-    public Bass(String brand, String model, int price, int stock, int numberOfStrings) {
-        super(model, brand, TypeInstrument.BASSE, (double) price, stock, "Instrument à cordes le plus souvent d'accompagnement aux sonorités plus grave que la guitare");
+    public Bass(String brand, String model, BigDecimal price, int stock, int numberOfStrings) {
+        super(model, brand, TypeInstrument.BASSE, price, stock, "Instrument à cordes le plus souvent d'accompagnement aux sonorités plus grave que la guitare");
         this.numberOfStrings = numberOfStrings;
     }
 

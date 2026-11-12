@@ -1,12 +1,16 @@
 package fr.formation.musicstore.entity;
 
+import java.math.BigDecimal;
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder 
 public class Instrument {
 
     private static Long counter = 0L;
@@ -15,12 +19,12 @@ public class Instrument {
     private String nom;
     private String marque;
     private TypeInstrument type;
-    private double prix;
+    private BigDecimal prix;
     private int quantiteStock;
     private String description;
 
     // Constructeur
-    public Instrument(String nom, String marque, TypeInstrument type, double prix, int quantiteStock, String description) {
+    public Instrument(String nom, String marque, TypeInstrument type, BigDecimal prix, int quantiteStock, String description) {
         this.id = ++counter;
         this.nom = nom;
         this.marque = marque;
@@ -42,7 +46,7 @@ public class Instrument {
     }
 
     // Calcule le prix TTC à partir du prix HT et du taux de TVA.
-    public double calculateTtcPrice(double tvaRate) {
-        return this.prix * (1 + tvaRate);
+    public BigDecimal calculateTtcPrice(BigDecimal tvaRate) {
+        return this.prix.multiply(BigDecimal.ONE.add(tvaRate));
     }
 }
